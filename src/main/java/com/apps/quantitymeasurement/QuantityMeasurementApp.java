@@ -30,19 +30,55 @@ public class QuantityMeasurementApp {
 
     }
 
+    public static class Inches{
+        private final double value;
+
+        public Inches(double value) {
+            this.value = value;
+        }
+
+        @Override
+        public boolean equals(Object obj){
+            if(this==obj)
+                return true;
+
+            if (this==null)
+                return false;
+
+            if (!(obj instanceof Inches ))
+                return false;
+
+            Inches inch= (Inches) obj;
+            return Double.compare(this.value, inch.value)==0;
+        }
+    }
+
+    public static void demonstrateFeetEquality(){
+
+
+        Feet feet1= new Feet(1);
+        Feet feet2= new Feet(1);
+
+
+
+        System.out.println("Feet Equals" + feet1.equals(feet2) );
+
+    }
+
+    public static void demonstrateInchEquality(){
+
+
+        Inches inch1= new Inches(1);
+        Inches inch2= new Inches(1);
+
+        System.out.println("Feet Equals" + inch1.equals(inch2) );
+
+    }
+
 
     public static void main(String[] args) {
-        System.out.println("Enter first feet value ");
-        Scanner sc = new Scanner(System.in);
-        float f1 = sc.nextFloat();
-
-        System.out.println("Enter second feet value");
-        float f2 = sc.nextFloat();
-
-        Feet feet1 = new Feet(f1);
-        Feet feet2 = new Feet(f2);
-
-        System.out.println("Feet equal " + feet1.equals(feet2));
+       demonstrateFeetEquality();
+       demonstrateInchEquality();
 
 
     }
