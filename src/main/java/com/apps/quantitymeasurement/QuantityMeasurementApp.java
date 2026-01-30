@@ -32,6 +32,9 @@ public class QuantityMeasurementApp {
 
 
     public static void main(String[] args) {
+
+        System.out.println("Welcome to Quantity Measurement App");
+
         System.out.println("Enter first feet value ");
         Scanner sc = new Scanner(System.in);
         float f1 = sc.nextFloat();
