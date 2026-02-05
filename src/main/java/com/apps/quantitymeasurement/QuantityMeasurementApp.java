@@ -2,50 +2,30 @@ package com.apps.quantitymeasurement;
 
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class QuantityMeasurementApp {
-
-    public static class Feet {
-        private final double value;
-
-        public Feet(double value) {
-            this.value = value;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            if (this == obj)
-                return true;
-            if (obj == null)
-                return false;
-
-            if (!(obj instanceof Feet))
-                return false;
-
-            Feet feet = (Feet) obj;
-            return Double.compare(this.value, feet.value) == 0;
-        }
-
-
-    }
-
-
     public static void main(String[] args) {
 
-        System.out.println("Welcome to Quantity Measurement App");
+       Length L1 = new Length(1, LengthUnit.FEET);
+       Length L2 = new Length(0.33333333, LengthUnit.YARD);
 
-        System.out.println("Enter first feet value ");
-        Scanner sc = new Scanner(System.in);
-        float f1 = sc.nextFloat();
+        System.out.println("Equality is " + L1.equals(L2));
 
-        System.out.println("Enter second feet value");
-        float f2 = sc.nextFloat();
+        Length L3 = new Length(1.0, LengthUnit.CENTIMETER);
+        Length L4 = new Length(0.393701, LengthUnit.INCH);
 
-        Feet feet1 = new Feet(f1);
-        Feet feet2 = new Feet(f2);
+        System.out.println("Equality is " + L3.equals(L4));
 
-        System.out.println("Feet equal " + feet1.equals(feet2));
+        Length L5 = new Length(1, LengthUnit.YARD);
+        Length L6 = new Length(36, LengthUnit.INCH);
+
+        System.out.println("Equality is " + L5.equals(L6));
+
+
+
+
+
+
 
 
     }
