@@ -1,5 +1,6 @@
 package com.apps.quantitymeasurement;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -20,14 +21,18 @@ public class QuantityMeasurementApp {
             if (obj == null)
                 return false;
 
-            if (!(obj instanceof Feet))
+            // use getClass() comparison instead of instanceof
+            if (getClass() != obj.getClass())
                 return false;
 
             Feet feet = (Feet) obj;
             return Double.compare(this.value, feet.value) == 0;
         }
 
-
+        @Override
+        public int hashCode() {
+            return Objects.hash(value);
+        }
     }
 
 
