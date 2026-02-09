@@ -1,4 +1,3 @@
-
 package com.apps.quantitymeasurement;
 
 import java.util.Objects;
@@ -55,6 +54,22 @@ public class Length {
 
     private double toBaseInch() {
         return value * unit.getConversionFactor();
+    }
+
+    /**
+     * Convert this Length to the base unit (inches) and return the numeric value.
+     */
+   /* public double demonstrateConversion() {
+        return toBaseInch();
+    }
+
+    /**
+     * Convert the provided Length to the base unit (inches).
+     */
+    public static double demonstrateConversion(Length length) {
+        if (length == null) throw new IllegalArgumentException("length must not be null");
+        System.out.println("Converting " + length + " to inches: " + length.toBaseInch() + " inches");
+        return  length.toBaseInch();
     }
 
     @Override

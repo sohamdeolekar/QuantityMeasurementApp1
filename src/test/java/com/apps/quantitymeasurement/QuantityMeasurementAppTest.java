@@ -41,4 +41,10 @@ public class QuantityMeasurementAppTest {
         assertFalse(x.equals(null), "should not be equal to null");
         assertFalse(x.equals("not a length"), "should not be equal to a different type");
     }
+
+    public void demonstrateConversionTest() {
+        Length l1 = new Length(1, LengthUnit.FEET);
+        double inches = l1.demonstrateConversion(l1);
+        assertEquals(12.0, inches, 1e-6, "1 foot should convert to 12 inches");
+    }
 }
