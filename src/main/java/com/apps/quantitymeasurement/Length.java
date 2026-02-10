@@ -56,17 +56,8 @@ public class Length {
         return value * unit.getConversionFactor();
     }
 
-    /**
-     * Convert this Length to the base unit (inches) and return the numeric value.
-     */
-   /* public double demonstrateConversion() {
-        return toBaseInch();
-    }
 
-    /**
-     * Convert the provided Length to the base unit (inches).
-     */
-    public static double demonstrateConversion(Length length) {
+    public  double demonstrateConversion(Length length) {
         if (length == null) throw new IllegalArgumentException("length must not be null");
         System.out.println("Converting " + length + " to inches: " + length.toBaseInch() + " inches");
         return  length.toBaseInch();
@@ -76,4 +67,21 @@ public class Length {
     public String toString() {
         return value + " " + unit;
     }
-}
+
+    public static double demonstrateAddition(Length L1,Length L2){
+      Double add= L1.toBaseInch() + L2.toBaseInch();
+
+        System.out.println((add / L1.getUnit().getConversionFactor()));
+
+        System.out.println(L1.getUnit());
+
+
+        return ((add / L1.getUnit().getConversionFactor()));
+    }
+
+    }
+
+
+
+
+
