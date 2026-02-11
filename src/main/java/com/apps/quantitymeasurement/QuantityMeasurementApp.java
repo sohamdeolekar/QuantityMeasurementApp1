@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class QuantityMeasurementApp {
     public static void main(String[] args) {
 
-       Length L1 = new Length(1, LengthUnit.CENTIMETER);
+       Length L1 = new Length(1, LengthUnit.FEET);
        Length L2 = new Length(12, LengthUnit.INCH);
 
         System.out.println("Equality is " + L1.equals(L2));

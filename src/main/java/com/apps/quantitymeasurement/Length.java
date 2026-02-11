@@ -68,20 +68,24 @@ public class Length {
         return value + " " + unit;
     }
 
-    public static double demonstrateAddition(Length L1,Length L2){
-      Double add= L1.toBaseInch() + L2.toBaseInch();
+    public static Length demonstrateAddition(Length l1, Length l2) {
+        if (l1 == null || l2 == null) {
+            throw new IllegalArgumentException("Both lengths must be non-null");
+        }
 
-        System.out.println((add / L1.getUnit().getConversionFactor()));
+        // Convert both lengths to the base unit (inches) and add
+        double sumInInches = l1.toBaseInch() + l2.toBaseInch();
 
-        System.out.println(L1.getUnit());
+        // Convert the sum (in inches) back into l1's unit so the result is expressed in l1.getUnit()
+        double resultValueInL1Unit = sumInInches / l1.getUnit().getConversionFactor();
 
+        // Create a Length representing the sum in l1's unit
+        Length result = new Length(resultValueInL1Unit, l1.getUnit());
 
-        return ((add / L1.getUnit().getConversionFactor()));
+        // Log a clear, user-friendly message
+        System.out.println("Adding " + l1 + " and " + l2 + " = " + result.getValue() + " " + result.getUnit());
+
+        return result;
     }
 
     }
-
-
-
-
-
