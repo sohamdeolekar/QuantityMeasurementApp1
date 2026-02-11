@@ -11,7 +11,7 @@ public class QuantityMeasurementApp {
 
         System.out.println("Equality is " + L1.equals(L2));
 
-        Length.demonstrateAddition(L1,L2);
+        Length.demonstrateAddition(L1,L2,LengthUnit.CENTIMETER);
 
 
        /* // print conversion outputs for L1 and L2

@@ -68,7 +68,7 @@ public class Length {
         return value + " " + unit;
     }
 
-    public static Length demonstrateAddition(Length l1, Length l2) {
+    public static Length demonstrateAddition(Length l1, Length l2, LengthUnit targetUnit) {
         if (l1 == null || l2 == null) {
             throw new IllegalArgumentException("Both lengths must be non-null");
         }
@@ -77,10 +77,10 @@ public class Length {
         double sumInInches = l1.toBaseInch() + l2.toBaseInch();
 
         // Convert the sum (in inches) back into l1's unit so the result is expressed in l1.getUnit()
-        double resultValueInL1Unit = sumInInches / l1.getUnit().getConversionFactor();
+        double resultValueInL1Unit = sumInInches / targetUnit.getConversionFactor();
 
         // Create a Length representing the sum in l1's unit
-        Length result = new Length(resultValueInL1Unit, l1.getUnit());
+        Length result = new Length(resultValueInL1Unit, targetUnit);
 
         // Log a clear, user-friendly message
         System.out.println("Adding " + l1 + " and " + l2 + " = " + result.getValue() + " " + result.getUnit());
