@@ -55,7 +55,8 @@ public class QuantityMeasurementAppTest {
         Length l1 = new Length(1, LengthUnit.FEET);
         Length l2 = new Length(12, LengthUnit.INCH);
 
-        Length result = Length.demonstrateAddition(l1, l2);
+        // demonstrateAddition requires a target unit; we want the result in l1's unit
+        Length result = Length.demonstrateAddition(l1, l2, l1.getUnit());
 
         assertEquals(LengthUnit.FEET, result.getUnit(), "Result unit should be the same as the first operand's unit");
         assertEquals(2.0, result.getValue(), 1e-6, "1 ft + 12 in should be 2 ft");
@@ -70,7 +71,7 @@ public class QuantityMeasurementAppTest {
         Length l1 = new Length(1.0, LengthUnit.CENTIMETER);
         Length l2 = new Length(1.0, LengthUnit.INCH);
 
-        Length result = Length.demonstrateAddition(l1, l2);
+        Length result = Length.demonstrateAddition(l1, l2, l1.getUnit());
 
         assertEquals(LengthUnit.CENTIMETER, result.getUnit(), "Result unit should be the same as the first operand's unit");
 
